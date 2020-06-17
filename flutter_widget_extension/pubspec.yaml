@@ -1,8 +1,8 @@
 name: flutter_widget_extension
 description: Elegant solution to callback nesting problem
 version: 0.0.1
-author:
-homepage:
+author: 董家祎<xxx.gmail.com>
+homepage: https://github.com/SHIMLY-GitHub/flutter_widget_extension
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
