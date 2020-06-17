@@ -8,21 +8,23 @@
 
 ```
  Widget _imageItem(imageUrl){
-		retrun  Container(
+ 
+	retrun  Container(
       width: 206,
       margin: EdgeInsets.only(right: 10),
       child: AspectRatio(
-          aspectRatio: 0.73,
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: CachedNetworkImage(
-                imageUrl: imageUrl,
-                fit: BoxFit.cover,
-              )
-          ),
-      ),
+          		aspectRatio: 0.73,
+          		child: ClipRRect(
+             		 borderRadius: BorderRadius.circular(8),
+              		 child: CachedNetworkImage(
+               		 imageUrl: imageUrl,
+                     fit: BoxFit.cover,
+                   )
+              ),
+         ),
    	)
  }
+ 
 ```
 
 但是当你使用 ``` flutter_widget_extension``` 你的代码会变成如下的样子
@@ -30,10 +32,11 @@
 ```
  Widget _imageItem(imageUrl){
  
-			return  CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.cover,)
-   					  .aspectRatio(aspectRatio: 0.73)
-    					.circularAll(radius: 8)
-    					.container(width: 206.w,margin: EdgeInsets.only(right: 10));
+	return CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.cover,)
+   			.aspectRatio(aspectRatio: 0.73)
+    		.circularAll(radius: 8)
+    		.container(width: 206.w,margin: EdgeInsets.only(right: 10));
+    					
     }
 ```
 
