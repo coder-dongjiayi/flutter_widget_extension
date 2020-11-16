@@ -4,6 +4,8 @@
  */
 import 'package:flutter/material.dart';
 
+typedef GestureTapCallback = void Function();
+
 extension WidgetExtension on Widget {
   Padding padding({Key key, EdgeInsets insets}) {
     return Padding(
@@ -29,6 +31,17 @@ extension WidgetExtension on Widget {
     return Expanded(key: key, flex: flex, child: this);
   }
 
+  SizedBox sizedBox({Key key, num width, num height}){
+
+    return SizedBox(
+      key: key,
+      child: this,
+      width: width,
+      height: height,
+    );
+  }
+
+  /// Container 所有属性
   Container container(
       {Key key,
       Alignment alignment: Alignment.center,
@@ -79,6 +92,37 @@ extension WidgetExtension on Widget {
     }
   }
 
+  GestureDetector gestureDetector({Key key, GestureTapCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: this,
+    );
+  }
+
+
+
+  Card card(
+      {Key key,
+      Color color,
+      double elevation,
+      ShapeBorder shape,
+      bool borderOnForeground = true,
+      EdgeInsets margin,
+      Clip clipBehavior,
+      bool semanticContainer = true}) {
+    return Card(
+      key: key,
+      color: color,
+      elevation: elevation,
+      shape: shape,
+      borderOnForeground: borderOnForeground,
+      margin: margin,
+      clipBehavior: clipBehavior,
+      semanticContainer: semanticContainer,
+      child: this,
+    );
+  }
+
   ClipRRect circular({Key key, BorderRadius borderRadius}) {
     return ClipRRect(
       key: key,
@@ -90,5 +134,20 @@ extension WidgetExtension on Widget {
   ClipRRect circularAll({Key key, double radius}) {
     return circular(
         key: key, borderRadius: BorderRadius.all(Radius.circular(radius)));
+  }
+
+  SliverPadding sliverPadding({Key key, EdgeInsets insets}) {
+    return SliverPadding(
+      key: key,
+      padding: insets,
+      sliver: this,
+    );
+  }
+
+  SliverToBoxAdapter sliverToBoxAdapter({Key key}) {
+    return SliverToBoxAdapter(
+      key: key,
+      child: this,
+    );
   }
 }
